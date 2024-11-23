@@ -1,23 +1,17 @@
+import utils from "../utils/index.mjs"
+
 export const part1 = (input) => {
   const galaxies = parse(input);
-  let result = 0;
-  for (let ia = 0; ia < galaxies.length - 1; ia++) {
-    for (let ib = ia + 1; ib < galaxies.length; ib++) {
-      result += manhattanDistance(galaxies[ia], galaxies[ib]);
-    }
-  }
+  const result = utils.array.uniquePairs(galaxies)
+    .reduce((sum, [ga, gb]) => sum + manhattanDistance(ga, gb), 0);
 
   console.log(result);
 }
 
 export const part2 = (input) => {
   const galaxies = parse(input, 1000000);
-  let result = 0;
-  for (let ia = 0; ia < galaxies.length - 1; ia++) {
-    for (let ib = ia + 1; ib < galaxies.length; ib++) {
-      result += manhattanDistance(galaxies[ia], galaxies[ib]);
-    }
-  }
+  const result = utils.array.uniquePairs(galaxies)
+    .reduce((sum, [ga, gb]) => sum + manhattanDistance(ga, gb), 0);
 
   console.log(result);
 }
